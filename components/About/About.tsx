@@ -30,11 +30,11 @@ function About(){
                   <span className={styles.statLabel}>Years Experience</span>
                 </div>
                 <div className={styles.statCard}>
-                  <span className={styles.statNumber}>15+</span>
+                  <span className={styles.statNumber}>5+</span>
                   <span className={styles.statLabel}>Projects Completed</span>
                 </div>
                 <div className={styles.statCard}>
-                  <span className={styles.statNumber}>9</span>
+                  <span className={styles.statNumber}>3</span>
                   <span className={styles.statLabel}>Technologies</span>
                 </div>
               </div>

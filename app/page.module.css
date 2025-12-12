@@ -28,15 +28,21 @@
 
 /* Hero Section */
 .hero {
-  height: 100%;
+  min-height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   position: relative;
-  overflow: hidden;
-  padding: 60px 24px 100px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 40px 24px 120px;
+  scrollbar-width: none;
+}
+
+.hero::-webkit-scrollbar {
+  display: none;
 }
 
 .heroBackground {
@@ -132,6 +138,35 @@
   margin-bottom: 0;
 }
 
+.socialLinks {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 32px;
+  animation: fadeIn 1s ease-out 1.2s both;
+}
+
+.socialIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #a0a0b0;
+  transition: all 0.3s ease;
+}
+
+.socialIcon:hover {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-color: transparent;
+  color: white;
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+}
+
 @keyframes float {
   0%,
   100% {
@@ -147,6 +182,10 @@
   .contactContent {
     grid-template-columns: 1fr;
     gap: 40px;
+  }
+
+  .hero {
+    padding: 30px 20px 140px;
   }
 }
 
@@ -174,17 +213,85 @@
   .heroOrb3 {
     opacity: 0.3;
   }
+
+  .hero {
+    padding: 20px 16px 140px;
+  }
+
+  .heroDescription {
+    font-size: 1rem;
+    margin-bottom: 30px;
+  }
+
+  .socialLinks {
+    margin-top: 24px;
+  }
+
+  .socialIcon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .socialIcon svg {
+    width: 20px;
+    height: 20px;
+  }
 }
 
 @media (max-width: 480px) {
+  .hero {
+    padding: 16px 16px 130px;
+    justify-content: flex-start;
+    padding-top: 40px;
+  }
+
+  .heroContent {
+    padding: 0 8px;
+  }
+
+  .heroGreeting {
+    font-size: 1rem;
+    margin-bottom: 4px;
+  }
+
+  .heroName {
+    font-size: clamp(2rem, 12vw, 3rem);
+    margin-bottom: 8px;
+  }
+
+  .heroTitle {
+    font-size: clamp(1.1rem, 5vw, 1.5rem);
+    margin-bottom: 16px;
+  }
+
+  .heroDescription {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    padding: 0 8px;
+  }
+
   .heroCta {
     flex-direction: column;
     width: 100%;
+    gap: 12px;
   }
 
   .heroCta a {
     width: 100%;
     justify-content: center;
+    padding: 14px 20px;
+    font-size: 0.95rem;
+  }
+
+  .socialLinks {
+    margin-top: 20px;
+    gap: 12px;
+  }
+
+  .socialIcon {
+    width: 40px;
+    height: 40px;
   }
 
   .aboutCard {
