@@ -1,0 +1,71 @@
+.bottomNav {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: rgba(10, 10, 15, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  color: #6b6b7b;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.navItem::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.navItem:hover {
+  color: white;
+}
+
+.navItem:hover::before {
+  opacity: 0.2;
+}
+
+.navItem:active {
+  transform: scale(0.9);
+}
+
+.navItem:active::before {
+  opacity: 0.3;
+}
+
+.navItem svg {
+  position: relative;
+  z-index: 1;
+  width: 20px;
+  height: 20px;
+}
+
+.navItem.active {
+  color: white;
+}
+
+.navItem.active::before {
+  opacity: 0.25;
+}

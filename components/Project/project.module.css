@@ -1,0 +1,134 @@
+.projects {
+  padding: 120px 0;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(18, 18, 26, 0.5) 50%,
+    transparent 100%
+  );
+}
+
+.projectsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 32px;
+}
+
+.projectCard {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  animation: fadeInUp 0.6s ease-out both;
+}
+
+.projectCard:hover {
+  transform: translateY(-10px);
+  border-color: #667eea;
+  box-shadow: 0 20px 50px rgba(102, 126, 234, 0.2);
+}
+
+.projectImage {
+  height: 200px;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.projectEmoji {
+  font-size: 5rem;
+}
+
+.projectContent {
+  padding: 28px;
+}
+
+.projectContent h3 {
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+  color: white;
+}
+
+.projectContent p {
+  color: #a0a0b0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.projectTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  padding: 6px 14px;
+  background: rgba(102, 126, 234, 0.15);
+  border: 1px solid rgba(102, 126, 234, 0.3);
+  border-radius: 20px;
+  font-size: 0.8rem;
+  color: #667eea;
+}
+
+.projectOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(102, 126, 234, 0.9) 0%,
+    rgba(118, 75, 162, 0.9) 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.projectCard:hover .projectOverlay {
+  opacity: 1;
+}
+
+.projectOverlay span {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 12px 28px;
+  border: 2px solid white;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+}
+
+.projectOverlay span:hover {
+  background: white;
+  color: #667eea;
+}
+
+.fullPage {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 100px 24px 100px;
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.fullPage::-webkit-scrollbar {
+  display: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .projectsGrid {
+    grid-template-columns: 1fr;
+  }
+}

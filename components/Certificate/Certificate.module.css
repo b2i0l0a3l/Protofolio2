@@ -1,0 +1,140 @@
+.certificates {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 100px 24px 100px;
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.certificates::-webkit-scrollbar {
+  display: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .certCard {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .certIcon {
+    margin: 0 auto;
+  }
+
+  .certImageWrapper {
+    margin: 16px auto 0;
+  }
+}
+
+.certificatesTimeline {
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.certCard {
+  display: flex;
+  gap: 24px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 28px;
+  transition: all 0.3s ease;
+  animation: fadeInUp 0.6s ease-out both;
+}
+
+.certCard:hover {
+  border-color: #667eea;
+  transform: translateX(10px);
+  box-shadow: 0 0 30px rgba(102, 126, 234, 0.15);
+}
+
+.certIcon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  flex-shrink: 0;
+}
+
+.certContent h3 {
+  font-size: 1.15rem;
+  margin-bottom: 8px;
+  color: white;
+}
+
+.certIssuer {
+  color: #a0a0b0;
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+}
+
+.certDate {
+  display: inline-block;
+  padding: 4px 12px;
+  background: rgba(102, 126, 234, 0.15);
+  border-radius: 12px;
+  color: #667eea;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.certImageWrapper {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  border-radius: 12px;
+  overflow: hidden;
+  flex-shrink: 0;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.certImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.certImageWrapper:hover .certImage {
+  transform: scale(1.1);
+}
+
+.certImageOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(102, 126, 234, 0.9) 0%,
+    rgba(118, 75, 162, 0.9) 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.certImageWrapper:hover .certImageOverlay {
+  opacity: 1;
+}
+
+.certImageOverlay span {
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-align: center;
+  padding: 4px;
+}

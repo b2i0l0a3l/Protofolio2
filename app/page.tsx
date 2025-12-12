@@ -1,66 +1,50 @@
-import Image from "next/image";
+"use client";
+
+import BottomNav from "@/components/BottomNav/BottomNav";
 import styles from "./page.module.css";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.tsx file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <div className={styles.pageWrapper}>
+      <section className={styles.hero}>
+        <div className={styles.heroBackground}>
+          <div className={styles.heroOrb1}></div>
+          <div className={styles.heroOrb2}></div>
+          <div className={styles.heroOrb3}></div>
+        </div>
+        <div className={styles.heroContent}>
+          <p className={styles.heroGreeting}>Hello, I&apos;m</p>
+          <h1 className={styles.heroName}>
+            <span className="gradient-text">Bilal El amraoui</span>
+          </h1>
+          <h2 className={styles.heroTitle}>Full-Stack Developer</h2>
+          <p className={styles.heroDescription}>
+            Passionate about building robust backend systems with .NET and
+            creating beautiful, responsive frontends. Specialized in C#,
+            ASP.NET, SQL, and modern web technologies.
           </p>
+          <div className={styles.heroCta}>
+            <Link href="/projects" className="btn-primary">
+              View My Work
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </Link>
+            <Link href="/contact" className="btn-secondary">
+              Get In Touch
+            </Link>
+          </div>
         </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+      </section>
+      <BottomNav />
     </div>
   );
 }
