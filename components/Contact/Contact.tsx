@@ -1,5 +1,45 @@
+"use client";
+
+import { useState, FormEvent } from "react";
 import styles from "./Contact.module.css";
+
 function Contact() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setError("");
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch("https://formspree.io/f/mblnqoae", {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (response.ok) {
+        setIsSuccess(true);
+        form.reset();
+        // Hide success message after 5 seconds
+        setTimeout(() => setIsSuccess(false), 5000);
+      } else {
+        setError("Something went wrong. Please try again.");
+      }
+    } catch {
+      setError("Network error. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <section className={styles.fullPage}>
       <div className="container">
@@ -22,7 +62,7 @@ function Contact() {
               <div className={styles.contactIcon}>📍</div>
               <div>
                 <h4>Location</h4>
-                <p>Germany</p>
+                <p>Marokko</p>
               </div>
             </div>
             <div className={styles.contactCard}>
@@ -33,11 +73,13 @@ function Contact() {
               </div>
             </div>
           </div>
-          <form
-            className={styles.contactForm}
-            action="https://formspree.io/f/mblnqoae"
-            method="POST"
-          >
+          <form className={styles.contactForm} onSubmit={handleSubmit}>
+            {isSuccess && (
+              <div className={styles.successMessage}>
+                ✅ Message sent successfully!
+              </div>
+            )}
+            {error && <div className={styles.errorMessage}>{error}</div>}
             <div className={styles.formGroup}>
               <input type="text" name="name" placeholder="Your Name" required />
             </div>
@@ -60,8 +102,12 @@ function Contact() {
                 required
               ></textarea>
             </div>
-            <button type="submit" className="btn-primary">
-              Send Message
+            <button
+              type="submit"
+              className="btn-primary"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? "Sending..." : "Send Message"}
               <svg
                 width="20"
                 height="20"
